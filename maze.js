@@ -3,13 +3,14 @@ var start = 0, check = 0;
 window.onload = function() {
 	var mouse = document.getElementById('maze');
 	mouse.addEventListener('mouseenter', change);
+	mouse.addEventListener('mouseleave', clean);
 
 	var wall = document.getElementsByClassName('wall');
 	for(var x = 0; x < 7; x++) 
 		wall[x].addEventListener('mouseenter', lose);
 
 	var clear = document.getElementById('start');
-	clear.addEventListener('mouseenter', clean);
+	clear.addEventListener('mouseenter', fadeout);
 
 	document.getElementById('start').addEventListener('mouseenter', through_start);
 	document.getElementById('check').addEventListener('mouseenter', through_check);
@@ -48,7 +49,6 @@ function clean() {
 	var wall = document.getElementsByClassName('wall');
 	for(var x = 0; x < 7; x++)
 		wall[x].style.backgroundColor = "#e0dede";
-	fadeout();
 }
 
 function fadeout() {
