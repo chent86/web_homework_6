@@ -94,6 +94,7 @@ function cheat() {
 function through_end() {
 	if(start == 1 && check == 1)
 		win();
-	else if(start == 1 && check == 0)
+	else if(start == 1 && check == 0 || start == 0)
 		cheat();
+
 }
