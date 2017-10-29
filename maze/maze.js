@@ -1,5 +1,4 @@
-var start = 0, check = 0;
-
+var begin = 0, check = 0;
 window.onload = function() {
 	var mouse = document.getElementById('maze');
 	mouse.addEventListener('mouseenter', change);
@@ -12,7 +11,7 @@ window.onload = function() {
 	var clear = document.getElementById('start');
 	clear.addEventListener('mouseenter', fadeout);
 
-	document.getElementById('start').addEventListener('mouseenter', through_start);
+	document.getElementById('start').addEventListener('mouseenter', through_begin);
 	document.getElementById('check').addEventListener('mouseenter', through_check);
 	document.getElementById('end').addEventListener('mouseenter', through_end);
 
@@ -27,7 +26,7 @@ function lose() {
 	if(text.style.opacity == "")
 		text.style.opacity = 0;
 	text.innerText = "You Lose";
-	start = 0;
+	begin = 0;
 	check = 0;
 	end = 0;
 	this.style.backgroundColor = "#ff0000";
@@ -42,7 +41,7 @@ function fadein() {
 		clearTimeout(t);
 		return;
 	}
-	t = setTimeout("fadein()", 50);
+	var t = setTimeout("fadein()", 50);
 }
 
 function clean() {
@@ -56,45 +55,45 @@ function fadeout() {
 	if(parseFloat(text.style.opacity) > 0)
 	text.style.opacity = (parseFloat(text.style.opacity)-0.25).toString();
 	if(parseFloat(text.style.opacity) == 0) {
-		clearTimeout(t);
+		clearTimeout(k);
 		return;
 	}
-	t = setTimeout("fadeout()", 50);
+	var k = setTimeout("fadeout()", 50);
 }
 
-function through_start() {
-	start = 1;
+function through_begin() {
+	begin = 1;
 	check = 0;
-	end = 0;
 }
 
 function through_check() {
 	check = 1;
-	end = 0;
 }
 
 function win() {
 	text = document.getElementById('three');
 	text.innerText = "You Win";
-	start = 0;
+	begin = 0;
 	check = 0;
-	end = 0;
+	if(text.style.opacity == "")
+		text.style.opacity = 0;
 	fadein();	
 }
 
 function cheat() {
 	text = document.getElementById('three');
 	text.innerText = "Don't cheat, you should start from the 'S' and move to the 'E' inside the maze!";
-	start = 0;
+	begin = 0;
 	check = 0;
-	end = 0;
+	if(text.style.opacity == "")
+		text.style.opacity = 0;
 	fadein();	
 }
 
 function through_end() {
-	if(start == 1 && check == 1)
+	if(begin == 1 && check == 1)
 		win();
-	else if(start == 1 && check == 0 || start == 0)
+	else if((begin == 1 && check == 0) || begin == 0)
 		cheat();
 
 }
