@@ -8,34 +8,36 @@ window.onload = function() {
 		tmp.addEventListener('click', find);
 		ground.append(tmp);
 	}
-	document.getElementById('record').children[0].addEventListener('click', start);
-	document.getElementById('record').children[1].addEventListener('click', end);
+	document.getElementById('record').children[0].addEventListener('click', start_or_stop);
+}
+
+function start_or_stop() {
+	if(begin == 0)
+		start();
+	else
+		end();
 }
 
 function start() {
-	if(begin == 0) {
-		begin = 1;
-		document.getElementsByTagName("input")[2].value = "0";
-		for(var i = 0; i < 60; i++)
-			if(document.getElementById('ground').children[i].style.borderColor == "blue") {
-				document.getElementById('ground').children[i].style.borderColor = "grey";
-				document.getElementById('ground').children[i].style.borderWidth = "thin";      //清理留下的蓝色
-				document.getElementById('ground').children[i].style.width = "15px";
-				document.getElementById('ground').children[i].style.height = "15px";			
-			}
-		document.getElementById('mode').value = "Playing";
-		document.getElementsByTagName("input")[0].value = "31";
-		time();
-		lift();
-	}
+	begin = 1;
+	document.getElementsByTagName("input")[2].value = "0";
+	for(var i = 0; i < 60; i++)
+		if(document.getElementById('ground').children[i].style.borderColor == "rgb(2, 242, 242)") {
+			document.getElementById('ground').children[i].style.borderColor = "grey";
+			document.getElementById('ground').children[i].style.borderWidth = "thin";      //清理留下的蓝色
+			document.getElementById('ground').children[i].style.width = "15px";
+			document.getElementById('ground').children[i].style.height = "15px";			
+		}
+	document.getElementById('mode').value = "Playing";
+	document.getElementsByTagName("input")[0].value = "31";
+	time();
+	lift();
 }
 
 function end() {
-	if(begin == 1) {
-		document.getElementById('mode').value = "Game Over";
-		begin = 0;
-		alert("Game Over\nYou score is: "+document.getElementsByTagName("input")[2].value);
-	}
+	document.getElementById('mode').value = "Game Over";
+	begin = 0;
+	alert("Game Over\nYou score is: "+document.getElementsByTagName("input")[2].value);
 }
 
 function time() {
@@ -54,7 +56,7 @@ function time() {
 
 function find() {
 	var tmp = document.getElementsByTagName("input")[2].value;
-	if(this.style.borderColor == "blue") {
+	if(this.style.borderColor == "rgb(2, 242, 242)") {
 		document.getElementsByTagName("input")[2].value = (parseInt(tmp)+1).toString();
 		this.style.borderColor = "grey";
 		this.style.borderWidth = "thin";
@@ -69,8 +71,8 @@ function find() {
 
 function lift() {
 	var ran = document.getElementById("ground").children[Math.round(Math.random()*59)].style;
-	ran.borderColor = "blue"; 
+	ran.borderColor = "#02f2f2"; 
 	ran.borderWidth = "thick";
-	ran.width = "6px";
-	ran.height = "6px";
+	ran.width = "8px";
+	ran.height = "8px";
 }
