@@ -1,0 +1,102 @@
+p.title {
+	text-align: center;
+	font-family: sans-serif;
+}
+
+p.title:nth-child(1) {
+	margin-top: 30px;
+	font-size: 20pt;
+}
+
+p.title:nth-child(2) {
+	font-size: 15pt;
+}
+
+#main {
+	/*border: 1px solid black;*/
+	width: 330px;
+	height: 300px;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#record button:nth-child(1) {
+	padding: 0;
+	border: 0;
+	background-color: white;
+	border: 0.5px solid grey;
+	border-right: 0;
+	border-top-left-radius: 20%;
+	border-bottom-left-radius: 20%;
+}
+
+#record button:nth-child(2) {
+	padding: 0;
+	border: 0;
+	margin-left: -4px;
+	background-color: white;
+	border: 0.5px solid grey;
+	border-left: 0;
+	border-top-right-radius: 20%;
+	border-bottom-right-radius: 20%;
+}
+
+#time {
+	position: absolute;
+	left: 240px;
+	top: -16px;
+}
+
+#time input{
+	width: 40px;
+}
+
+#mode {
+	position: absolute;
+	top: 30px;
+	left: 0px;
+	width: 120px;
+}
+
+#score {
+	position: absolute;
+	left: 240px;
+	top: 13px;
+}
+
+#score input {
+	width: 40px;
+}
+
+#ground {
+	position: absolute;
+	border: 1px solid black;
+	top: 100px;
+	width: 100%;
+	height: 200px;
+	border-left: 0;
+	border-right: 0;
+}
+
+#ground div {
+	border: 0.5px solid grey;
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+	margin: 8px;
+	border-radius: 50%;
+}
+
+#end p:nth-child(1) {
+	font-weight: bold;
+}
+
+#end {
+	margin-top: 50px;
+	width: 600px;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: sans-serif;
+}
