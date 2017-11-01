@@ -1,3 +1,4 @@
+// 个人信息在README.md
 var begin = 0, check = 0;
 window.onload = function() {
 	var mouse = document.getElementById('maze');
