@@ -6,14 +6,23 @@
 	width: 601px;
 }
 
-div.wall, div.gate {
+div.gate {
+	border: 0.1px solid black;
+}
+
+.red {
+	background-color: #ff0000;
+	border: 0.1px solid black;
+}
+
+.wall {
+	background-color: #e0dede;
 	border: 0.1px solid black;
 }
 
 #up_1 {
 	width: 200.8px;
 	height: 50px;
-	background-color: #e0dede;
 	display: inline-block;
 	border-right: 0;
 	border-bottom: 0;
@@ -22,7 +31,6 @@ div.wall, div.gate {
 #up_2 {
 	width: 200px;
 	height: 50px;
-	background-color: #e0dede;
 	float: right;	
 	border-left: 0;
 	border-bottom: 0;
@@ -31,7 +39,6 @@ div.wall, div.gate {
 #up_3 {
 	width: 200px;
 	height: 50px;
-	background-color: #e0dede;
 	float: right;	
 	border-left: 0;
 	border-right: 0;
@@ -40,7 +47,6 @@ div.wall, div.gate {
 #left {
 	width: 200px;
 	height: 200px;
-	background-color: #e0dede;
 	display: inline-block;
 	border-top: 0;
 }
@@ -51,7 +57,6 @@ div.wall, div.gate {
 	top: 50px;
 	width: 201px;
 	height: 200px;
-	background-color: #e0dede;
 	border-top: 0;
 }
 
@@ -70,7 +75,6 @@ div.wall, div.gate {
 	top: 99px;
 	width: 100px;
 	height: 203px;
-	background-color: #e0dede;
 	border-bottom: 0;
 }
 

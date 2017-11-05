@@ -7,6 +7,7 @@ window.onload = function() {
 	for(var i = 0; i < 60; i++) {
 		var tmp = document.createElement("div");
 		tmp.addEventListener('click', find);
+		tmp.className = "hole";
 		ground.append(tmp);
 	}
 	document.getElementById('record').children[0].addEventListener('click', start_or_stop);
@@ -22,13 +23,6 @@ function start_or_stop() {
 function start() {
 	begin = 1;
 	document.getElementsByTagName("input")[2].value = "0";
-	for(var i = 0; i < 60; i++)
-		if(document.getElementById('ground').children[i].style.borderColor == "rgb(2, 242, 242)") {
-			document.getElementById('ground').children[i].style.borderColor = "grey";
-			document.getElementById('ground').children[i].style.borderWidth = "thin";      //清理留下的蓝色
-			document.getElementById('ground').children[i].style.width = "15px";
-			document.getElementById('ground').children[i].style.height = "15px";			
-		}
 	document.getElementById('mode').value = "Playing";
 	document.getElementsByTagName("input")[0].value = "31";
 	time();
@@ -38,6 +32,10 @@ function start() {
 function end() {
 	document.getElementById('mode').value = "Game Over";
 	begin = 0;
+	for(var i = 0; i < 60; i++)
+		if(document.getElementById('ground').children[i].className == "mouse") {
+			document.getElementById('ground').children[i].className = "hole"      //清理留下的蓝色			
+		}
 	alert("Game Over\nYou score is: "+document.getElementsByTagName("input")[2].value);
 }
 
@@ -58,12 +56,9 @@ function time() {
 function find() {
 	if(begin == 1) {
 		var tmp = document.getElementsByTagName("input")[2].value;
-		if(this.style.borderColor == "rgb(2, 242, 242)") {
+		if(this.className == "mouse") {
 			document.getElementsByTagName("input")[2].value = (parseInt(tmp)+1).toString();
-			this.style.borderColor = "grey";
-			this.style.borderWidth = "0.5px";
-			this.style.width = "15px";
-			this.style.height = "15px";
+			this.className = "hole";
 			lift();
 		}
 		else
@@ -72,9 +67,6 @@ function find() {
 }
 
 function lift() {
-	var ran = document.getElementById("ground").children[Math.round(Math.random()*59)].style;
-	ran.borderColor = "#02f2f2"; 
-	ran.borderWidth = "4px";
-	ran.width = "8px";
-	ran.height = "8px";
+	var ran = document.getElementById("ground").children[Math.round(Math.random()*59)];
+	ran.className = "mouse";
 }

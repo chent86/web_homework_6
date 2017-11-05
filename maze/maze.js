@@ -31,7 +31,7 @@ function lose() {
 		begin = 0;
 		check = 0;
 		end = 0;
-		this.style.backgroundColor = "#ff0000";
+		this.className = "red";
 		fadein();
 	}
 }
@@ -48,9 +48,8 @@ function fadein() {
 }
 
 function clean() {
-	var wall = document.getElementsByClassName('wall');
-	for(var x = 0; x < 7; x++)
-		wall[x].style.backgroundColor = "#e0dede";
+	var wall = document.getElementsByClassName('red');
+	wall[0].className = "wall";
 }
 
 function fadeout() {
