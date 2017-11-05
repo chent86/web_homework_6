@@ -56,24 +56,25 @@ function time() {
 }
 
 function find() {
-	var tmp = document.getElementsByTagName("input")[2].value;
-	if(this.style.borderColor == "rgb(2, 242, 242)") {
-		document.getElementsByTagName("input")[2].value = (parseInt(tmp)+1).toString();
-		this.style.borderColor = "grey";
-		this.style.borderWidth = "thin";
-		this.style.width = "15px";
-		this.style.height = "15px";
-		lift();
+	if(begin == 1) {
+		var tmp = document.getElementsByTagName("input")[2].value;
+		if(this.style.borderColor == "rgb(2, 242, 242)") {
+			document.getElementsByTagName("input")[2].value = (parseInt(tmp)+1).toString();
+			this.style.borderColor = "grey";
+			this.style.borderWidth = "0.5px";
+			this.style.width = "15px";
+			this.style.height = "15px";
+			lift();
+		}
+		else
+			document.getElementsByTagName("input")[2].value = (parseInt(tmp)-1).toString();
 	}
-	else
-		document.getElementsByTagName("input")[2].value = (parseInt(tmp)-1).toString();
-
 }
 
 function lift() {
 	var ran = document.getElementById("ground").children[Math.round(Math.random()*59)].style;
 	ran.borderColor = "#02f2f2"; 
-	ran.borderWidth = "thick";
+	ran.borderWidth = "4px";
 	ran.width = "8px";
 	ran.height = "8px";
 }

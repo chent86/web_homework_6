@@ -23,15 +23,17 @@ function change() {
 }
 
 function lose() {
-	text = document.getElementById('three');
-	if(text.style.opacity == "")
-		text.style.opacity = 0;
-	text.innerText = "You Lose";
-	begin = 0;
-	check = 0;
-	end = 0;
-	this.style.backgroundColor = "#ff0000";
-	fadein();
+	if(begin == 1) {
+		text = document.getElementById('three');
+		if(text.style.opacity == "")
+			text.style.opacity = 0;
+		text.innerText = "You Lose";
+		begin = 0;
+		check = 0;
+		end = 0;
+		this.style.backgroundColor = "#ff0000";
+		fadein();
+	}
 }
 
 function fadein() {
