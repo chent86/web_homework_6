@@ -15,7 +15,6 @@ p.title:nth-child(2) {
 }
 
 #main {
-	/*border: 1px solid black;*/
 	width: 330px;
 	height: 300px;
 	position: relative;
@@ -23,17 +22,24 @@ p.title:nth-child(2) {
 	margin-right: auto;
 }
 
-#record div {
+#record {
+	padding: 0;
+	width: 330px;
+	height: 100px;
+}
+
+#go {
 	border: 1px solid grey;
-	width: 160px;
-	padding-left: 4px;
-	padding-right: 4px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
 }
 
 #time {
+	margin: 0;
 	position: absolute;
-	left: 240px;
-	top: -16px;
+	right: 0px;
+	top: 0px;
 }
 
 #time input{
@@ -44,13 +50,14 @@ p.title:nth-child(2) {
 	position: absolute;
 	top: 30px;
 	left: 0px;
-	width: 120px;
+	width: 80px;
 }
 
 #score {
+	margin: 0;
 	position: absolute;
-	left: 240px;
-	top: 13px;
+	right: 0px;
+	top: 30px;
 }
 
 #score input {
@@ -65,6 +72,7 @@ p.title:nth-child(2) {
 	height: 200px;
 	border-left: 0;
 	border-right: 0;
+	overflow: hidden;
 }
 
 .hole {
@@ -77,9 +85,11 @@ p.title:nth-child(2) {
 }
 
 .mouse {
-	border: 4px solid #02f2f2;
-	width:8px;
-	height:8px;	
+	/*border: 4px solid #02f2f2;*/
+	border: 0.5px solid grey;
+	background-color: grey;
+	width: 15px;
+	height: 15px;
 	display: inline-block;
 	margin: 8px;
 	border-radius: 50%;
