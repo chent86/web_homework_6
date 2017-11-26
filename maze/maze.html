@@ -2,7 +2,9 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="maze.css">
-		<script type="text/javascript" src="maze.js"></script>	
+		<script type="text/javascript" src="maze.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
+		<script src=https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js></script>	
 	</head>
 	<body>
 		<p id="one">The Amazing Mouse Maze!</p>
@@ -17,12 +19,13 @@
 			<div id = "start" class="gate">
 				S
 			</div>
+			<div id = "down" class="wall"></div>
 			<div id = "middle" class="wall"></div>
 			<div id = "check" class="gate"></div>
 			<div id = "end" class="gate">
 				E
 			</div>
-			<div id = "down" class="wall"></div>
+			
 		</div>
 		<div id="words">
 			<p id="four">The object of this game is to guide the mouse cursor through the start area<br>

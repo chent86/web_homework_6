@@ -1,67 +1,36 @@
 // 个人信息在README.md
 var begin = 0, check = 0;
 window.onload = function() {
-	var mouse = document.getElementById('maze');
-	mouse.addEventListener('mouseleave', clean);
-
-	var wall = document.getElementsByClassName('wall');
-	for(var x = 0; x < 7; x++) 
-		wall[x].addEventListener('mouseenter', lose);
-
-	var clear = document.getElementById('start');
-	clear.addEventListener('mouseenter', fadeout);
-
-	document.getElementById('start').addEventListener('mouseenter', through_begin);
-	document.getElementById('check').addEventListener('mouseenter', through_check);
-	document.getElementById('end').addEventListener('mouseenter', through_end);
-
-
+	$("#maze").bind("mouseleave",clean);
+	$(".wall").bind('mouseenter', lose);
+	$("#start").bind('mouseenter', fadeout).bind('mouseenter', through_begin);
+	$("#check").bind('mouseenter', through_check);
+	$("#end").bind('mouseenter', through_end);
 }
 
 function lose() {
-	if(begin == 1) {
-		text = document.getElementById('three');
-		text.innerText = "You Lose";
+	if(begin == 1 && this.id != "sample") {
+		$("#three").text("You Lose");
 		begin = 0;
 		check = 0;
 		end = 0;
 		this.className = "red";
-		text.className = "show";		
+		$("#three").addClass("show");		
 	}
 }
 
-// function fadein() {
-// 	text = document.getElementById('three');
-// 	if(parseFloat(text.style.opacity) < 1)
-// 		text.style.opacity = (parseFloat(text.style.opacity)+0.25).toString();
-// 	if(parseFloat(text.style.opacity) >= 1) {
-// 		clearTimeout(t);
-// 		return;
-// 	}
-// 	var t = setTimeout("fadein()", 50);
-// }
-
 function clean() {
-	var wall = document.getElementsByClassName('red');
-	wall[0].className = "wall";
+	$(".red").removeClass("red").addClass("wall");
 }
 
 function fadeout() {
-	// text = document.getElementById('three');
-	// if(parseFloat(text.style.opacity) > 0)
-	// text.style.opacity = (parseFloat(text.style.opacity)-0.25).toString();
-	// if(parseFloat(text.style.opacity) == 0) {
-	// 	clearTimeout(k);
-	// 	return;
-	// }
-	// var k = setTimeout("fadeout()", 50);
-	document.getElementById('three').className = "hide";
+	$("#three").addClass("hide");
 }
 
 function through_begin() {
 	begin = 1;
 	check = 0;
-	document.getElementById('three').className = "hide";
+	$("#three").removeClass("show").addClass("hide");
 }
 
 function through_check() {
@@ -69,19 +38,16 @@ function through_check() {
 }
 
 function win() {
-	text = document.getElementById('three');
-	text.innerText = "You Win";
+	$("#three").text("You Win").addClass("show");
 	begin = 0;
 	check = 0;
-	text.className = "show";	
 }
 
 function cheat() {
-	text = document.getElementById('three');
-	text.innerText = "Don't cheat, you should start from the 'S' and move to the 'E' inside the maze!";
+	$("#three").text("Don't cheat, you should start from the 'S' \
+		and move to the 'E' inside the maze!").addClass("show");
 	begin = 0;
 	check = 0;
-	text.className = "show";
 }
 
 function through_end() {
@@ -89,5 +55,4 @@ function through_end() {
 		win();
 	else if((begin == 1 && check == 0) || begin == 0)
 		cheat();
-
 }
